@@ -1,0 +1,64 @@
+﻿@model MVC.Models.Attendance
+
+
+<h4>Attendance</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AttdId" />
+            <div class="form-group">
+                <label asp-for="ComId" class="control-label"></label>
+                <select asp-for="ComId" asp-items="@ViewBag.company"></select>
+                <span asp-validation-for="ComId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpId" class="control-label"></label>
+                <select asp-for="EmpId" asp-items="@ViewBag.employee"></select>
+                <span asp-validation-for="EmpId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dtDate" class="control-label"></label>
+                <input asp-for="dtDate" class="form-control" />
+                <span asp-validation-for="dtDate" class="text-danger"></span>
+            </div>
+           @*  <div class="form-group">
+                <label asp-for="TimeIn" class="control-label"></label>
+                <input asp-for="TimeIn" class="form-control" />
+                <span asp-validation-for="TimeIn" class="text-danger"></span>
+            </div> *@
+            @* <div class="form-group">
+                <label asp-for="TimeOut" class="control-label"></label>
+                <input asp-for="TimeIn" class="form-control" />
+                <span asp-validation-for="TimeOut" class="text-danger"></span>
+            </div> *@
+                <div class="form-group row">
+                    <label asp-for="TimeIn" class="col-sm-2 col-form-label">TimeIn</label>
+                    <div class="col-sm-10">
+                        <input type="time" asp-for="TimeIn" class="form-control"
+                               id="fees" placeholder="TimeIn">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="TimeOut" class="col-sm-2 col-form-label">TimeOut</label>
+                    <div class="col-sm-10">
+                        <input type="time" asp-for="TimeOut" class="form-control"
+                               id="fees" placeholder="TimeOut">
+                    </div>
+                </div>
+           @*  <div class="form-group">
+                <label asp-for="AttStatus" class="control-label"></label>
+                <input asp-for="AttStatus" class="form-control" />
+                <span asp-validation-for="AttStatus" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

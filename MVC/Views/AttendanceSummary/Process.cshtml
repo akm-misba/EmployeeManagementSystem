@@ -1,0 +1,37 @@
+﻿@model MVC.Models.AttendanceSummary
+
+
+
+<h4>AttendanceSummary</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Process">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ComId" class="control-label"></label>
+                <select asp-for="ComId" asp-items="@ViewBag.company"></select>
+                <span asp-validation-for="ComId" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <label  class="col-sm-2 col-form-label">Date</label>
+                <div class="col-sm-10">
+                   @*  <select  asp-items="@ViewBag.month"></select>
+                    <select asp-items="@ViewBag.year"></select> *@
+                    <input type="month"  class="form-control"
+                           id="date" name="dateTime" placeholder="Date">
+                </div>
+            </div>
+           
+            <div class="form-group">
+                <input type="submit" value="Process" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
